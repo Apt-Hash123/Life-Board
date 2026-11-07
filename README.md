@@ -1,7 +1,7 @@
 # Life Board
 
 A bright, simple tracker for daily tasks, flexible habits, long-term goals, lists, notes and wins.
-Designed and built by Shelly Khanuja.
+Designed and built by Ansh Khanuja.
 
 It installs on a phone like an app, works offline, and keeps all data on the device (browser local storage). Nothing is sent to a server.
 

@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Life Board">
-<meta property="og:description" content="A bright, simple tracker for daily tasks, flexible habits, long-term goals, lists and wins. Designed and built by Shelly Khanuja.">
+<meta property="og:description" content="A bright, simple tracker for daily tasks, flexible habits, long-term goals, lists and wins. Designed and built by Ansh Khanuja.">
 <meta property="og:image" content="__SITE_URL__/og.png">
 <meta property="og:url" content="__SITE_URL__/">
 <meta name="twitter:card" content="summary_large_image">
@@ -2312,7 +2312,7 @@ async function askClaude(btn) {
   btn.disabled = true; btn.textContent = 'Thinking…';
   const out = $('#aiOut');
   try {
-    const r = await sample(`You are an upbeat, honest accountability buddy. Write a short progress update for Shelly based on her tracker data below. Format: 4 to 6 short lines, plain text, no markdown, no emoji. Line 1: the biggest win. Then 2 to 3 specific observations (consistent habits, slipping ones, goals she hasn't touched). Last line: one concrete, small suggestion for the next few days. Keep it warm and specific, under 110 words.\n\n${lines.join('\n')}`, {modelTier: 'quick', onText: ({text}) => { aiText = text; out.innerHTML = `<div class="ai">${esc(text)}</div>`; }});
+    const r = await sample(`You are an upbeat, honest accountability buddy. Write a short progress update for ${state.settings.name || 'the user'} based on their tracker data below. Format: 4 to 6 short lines, plain text, no markdown, no emoji. Line 1: the biggest win. Then 2 to 3 specific observations (consistent habits, slipping ones, goals she hasn't touched). Last line: one concrete, small suggestion for the next few days. Keep it warm and specific, under 110 words.\n\n${lines.join('\n')}`, {modelTier: 'quick', onText: ({text}) => { aiText = text; out.innerHTML = `<div class="ai">${esc(text)}</div>`; }});
     aiText = r.text; out.innerHTML = `<div class="ai">${esc(aiText)}</div>`;
   } catch (err) {
     if (err && err.code === 'not_granted') { sample = null; render(); return; }
